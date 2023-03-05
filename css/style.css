@@ -1,0 +1,275 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans' sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.contenedor{
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(80px,80px) auto;
+    grid-template-rows: 60px auto;
+    grid-template-areas:"header header"
+                        "menu contenido";
+    transition: 0.3s all ease;
+}
+
+.contenedor.active{
+    grid-template-columns: minmax(300px,18%) auto;
+}
+
+
+/* header */
+.header{
+    background-color: #233A66;
+    grid-area: header;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 20px;
+    grid-template-areas: "logo busqueda iconos";
+}
+
+header .contenedorlogo{
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+}
+
+header .contenedorlogo .boton-menu{
+    border: none;
+    padding: 10px;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 100px;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+header .contenedorlogo .boton-menu:hover{
+    background: rgb(38, 54, 88);
+}
+
+header .contenedorlogo .logo .fa-solid{
+    background: rgb(38, 54, 88);
+    padding: 7px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #FFD691;
+    position: relative;
+    top: -4px;
+    margin-right: 4px;
+}
+
+header .contenedorlogo .logo{
+    font-family: "Bebas Neue" cursive;
+    font-size: 20px;
+    position: relative;
+    top: 2px;
+
+}
+
+header .barra{
+    grid-area: busqueda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+header .barra input{
+    min-width: 60%;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: "Open Sans" sans-serif;
+}
+
+header .barra button{
+    height: 35px;
+    border: 1px solid #ccc;
+    border-left: none;
+    color: #545454;
+    background: #f8f8f8;
+    padding: 0 25px;
+    cursor: pointer;
+}
+
+header .barra button:hover{
+    background: #f5f5f5;
+}
+
+header .botones-header{
+    grid-area: iconos;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .botones-header button{
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    padding: 7px 12px;
+    border-radius: 100px;
+    color: #FFD691;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+header .botones-header button:hover{
+    background: rgb(38, 54, 88);
+}
+
+.boton-menu .fas{
+    color: white;
+}
+
+/* menu lateral */
+
+.menu-lateral{
+    background-color: #233A66;
+    grid-area: menu;
+    overflow: hidden;
+}
+
+.menu-lateral a{
+    display: block;
+    padding: 15px 35px;
+    color: white;
+    min-width: 1000px;
+}
+
+.menu-lateral a:hover{
+    background: rgb(38, 54, 88);
+}
+
+.menu-lateral a.active{
+    background: rgb(38, 54, 88);
+    font-weight: bold;
+}
+
+.menu-lateral .fa-solid{
+    color: #FFD691;
+    margin-right: 32px;
+    width: 20px;
+    text-align: center;
+
+}
+
+.menu-lateral a.active .fa-solid{
+    color: #FFD691;
+}
+
+
+
+/* main */
+.main{
+    background-color: #233A66;
+    grid-area: contenido;
+    padding: 40px;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.main .titulo{
+    margin-bottom: 20px;
+    color: white;
+    font-size: 2.5rem;
+}
+
+.main .grid-img{
+    display: grid;
+    grid-gap: 40px 20px;
+    grid-template-columns: repeat(4,1fr);
+
+}
+
+.main .grid-img .img{
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+}
+
+.main .grid-img .img:hover{
+    background: #FFD691;
+}
+
+
+.main .grid-img .img img{
+    width: 100%;
+}
+
+
+
+
+/* mediasquery */
+
+@media screen and (max-width:1200px){
+    .main .grid-img{
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    header .contenedorlogo .logo span{
+        display: none;
+    }
+
+    .header .barra input{
+        min-width: 80%;
+    }
+}
+
+
+@media screen and (max-width:992px){
+    .main .grid-img{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media screen and (max-width:768px){
+    .contenedor{
+        grid-template-rows: auto;
+    }
+
+    .header{
+        padding: 20px;
+        grid-template-columns:  auto auto;
+        justify-content: space-between;
+        grid-template-areas:"logo iconos"
+                            "busqueda busqueda";
+    }
+
+    header .contenedorlogo .logo span{
+        display: inline;
+    }
+
+    .header .barra input{
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:576px){
+    .main .grid-img{
+        grid-template-columns: 1fr;
+    }
+}
+
