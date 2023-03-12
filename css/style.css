@@ -183,13 +183,6 @@ header .botones-header button:hover{
 
 /* main */
 
-.tarjeta h3{
-    text-align: center;
-    font-size: 30px;
-    margin: 0;
-    padding-top: 10px;
-}
-
 .main{
     background-color: #233A66;
     grid-area: contenido;
@@ -213,7 +206,7 @@ header .botones-header button:hover{
 }
 
 .tarjeta{
-    width: 24%;
+    width: 21%;
     margin: 15px;
     box-sizing: border-box;
     float: left;
@@ -233,12 +226,20 @@ header .botones-header button:hover{
     transform: translate(0px, -8px);
 }
 
+.tarjeta h3{
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    padding-top: 10px;
+}
+
 .tarjeta img{
     width: 200px;
     height: 200px;
     text-align: center;
     margin: 0 auto;
     display: block;
+    
 }
 
 .tarjeta p{
