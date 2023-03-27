@@ -129,7 +129,7 @@ header .botones-header button{
     width: 40px;
     height: 40px;
     font-size: 18px;
-    padding: 7px 12px;
+    padding: 5px 10px;
     border-radius: 100px;
     color: #FFD691;
     margin-right: 20px;
@@ -298,31 +298,6 @@ header .botones-header button:hover{
 }
 
 
-/* .main .grid-img{
-    display: grid;
-    grid-gap: 40px 20px;
-    grid-template-columns: repeat(4,1fr);
-
-}
-
-.main .grid-img .img{
-    width: 100%;
-    display: block;
-    border-radius: 20px;
-}
-
-.main .grid-img .img:hover{
-    background: #FFD691;
-}
-
-
-.main .grid-img .img img{
-    width: 100%;
-} */
-
-
-
-
 /* mediasquery */
 
 @media screen and (max-width:1200px){
@@ -339,7 +314,7 @@ header .botones-header button:hover{
     }
 
     .tarjeta{
-        width: 25%;
+        width: 32%;
     }
 }
 
@@ -355,9 +330,6 @@ header .botones-header button:hover{
 }
 
 @media screen and (max-width:768px){
-    .contenedor{
-        grid-template-rows: auto;
-    }
 
     .header{
         padding: 20px;
