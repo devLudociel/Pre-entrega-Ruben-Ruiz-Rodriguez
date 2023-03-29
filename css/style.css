@@ -357,5 +357,12 @@ header .botones-header button:hover{
     .tarjeta{
         width: 100%;
     }
+
 }
+@media screen and (max-width:477px){
+    header .contenedorlogo .logo span{
+        display: none;
+    }
+}
+
 
