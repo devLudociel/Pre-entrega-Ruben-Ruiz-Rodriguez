@@ -1,40 +1,42 @@
-const contenedor = document.querySelector('#contenedor');
-const btnRedes = document.querySelector('.fa-brands');
-const cart = document.querySelector('#cart');
-const tarjeta = document.querySelector('.tarjeta');
+const contenedor = document.querySelector("#contenedor");
+const btnRedes = document.getElementById('iconos');
+const cart = document.querySelector("#cart");
+const tarjeta = document.getElementById('gallery');
 
-document.querySelector('#boton-menu').addEventListener('click', () =>{
-    contenedor.classList.toggle('active');
-})
-
-document.querySelector('.fa-brands').addEventListener('click', ()=>{
-    btnRedes.classList(alert("Esta siendo Redirigido a nuestras Redes !NO olvides Seguirnos!"))
+document.querySelector("#boton-menu").addEventListener("click", () => {
+    contenedor.classList.toggle("active");
 });
 
-document.querySelector('#cart').addEventListener('click', ()=>{
-    cart.classList(alert("Su Carrito de Compras esta esperando por el Pago!!!"))
+btnRedes.addEventListener("click", () => {
+    btnRedes.classList(
+        alert("Esta siendo Redirigido !NO olvides Seguirnos en nuestras Redes!")
+    );
 });
 
-document.querySelector('.tarjeta').addEventListener('click', ()=>{
-        let aviso = prompt('Cuantas unidades desea añadir al carrito?')
-        console.log(aviso)
-        alert("Se ha añadido con Exito!!")
+document.querySelector("#cart").addEventListener("click", () => {
+    cart.classList(confirm("Su Carrito de Compras esta esperando por el Pago!!! ¿Desea Continuar?"));
 });
 
 
-
-const comprobarancho = () =>{
-    if(window.innerWidth<=768){
-        contenedor.classList.remove('active')
+tarjeta.addEventListener('click', ()=>{
+    let cantidad = prompt("¿Cuantas unidades desea añadir al carrito?");
+    if (cantidad >= 1) {
+        alert("Se ha añadido con Exito!!");
+    } else {
+        alert("Debe añadir 1 articulo para continuar");
     }
-    else{
-        contenedor.classList.add('active')
+});
+
+const comprobarancho = () => {
+    if (window.innerWidth <= 768) {
+        contenedor.classList.remove("active");
+    } else {
+        contenedor.classList.add("active");
     }
-}
+};
 
 comprobarancho();
 
-
-window.addEventListener('resize', ()=>{
+window.addEventListener("resize", () => {
     comprobarancho();
-})
+});
