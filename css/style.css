@@ -179,6 +179,43 @@ header .botones-header button:hover{
     color: #FFD691;
 }
 
+.menu-lateral input{
+    display: block;
+    min-width: 80%;
+    height: 25px;
+    margin: 20px;
+    background-color: #FFD691;
+    color: #233A66;
+    border-radius: 6px;
+}
+
+.menu-lateral button{
+    width: 80%;
+    height: 32px;
+    border-radius: 16px;
+    margin: 20px;
+    margin-top: 0px;
+    background-color: #FFD691;
+    color: #233A66;
+    cursor: pointer;
+}
+
+.menu-lateral button .fa-solid{
+    color: #233A66;
+    font-size: 16px;
+}
+
+.menu-lateral div .resultado{
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    margin-top: 0;
+    padding: 10px;
+}
+
 
 
 /* main */
@@ -346,6 +383,10 @@ header .botones-header button:hover{
     .header .barra input{
         min-width: auto;
         width: 100%;
+    }
+
+    .menu-lateral .bucle{
+        display: none;
     }
 }
 
