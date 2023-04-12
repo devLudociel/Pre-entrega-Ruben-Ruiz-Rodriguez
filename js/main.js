@@ -75,3 +75,78 @@ comprobarancho();
 window.addEventListener("resize", () => {
     comprobarancho();
 });
+
+
+////////////         Programacion para el Juego        ////////////
+
+let preguntas = ["a.png","imgA.png","imgB.png","imgC.png","imgD.png","imgE.png"];
+
+let guardarOp = [0,2,1,1,0,2,1];
+
+let opciones =[];
+
+opciones.push(["HTML", "CSS", "Javascript"]);
+opciones.push(["HTML", "CSS", "Javascript"]);
+opciones.push(["HTML", "CSS", "Javascript"]);
+opciones.push(["HTML", "CSS", "Javascript"]);
+opciones.push(["HTML", "CSS", "Javascript"]);
+opciones.push(["HTML", "CSS", "Javascript"]);
+opciones.push(["HTML", "CSS", "Javascript"]);
+
+
+let posActual = 0;
+let cantidadAcertada = 0;
+
+function comenzarJuego(){
+    posActual=0;
+    cantidadAcertada=0;
+    document.getElementById('pantalla-inicial').style.display = "none";
+    document.getElementById('pantalla-juego').style.display = "block";
+    cargarPreguntas();
+}
+
+function cargarPreguntas(){
+    if(preguntas.length<=posActual){
+        terminarJuego();
+    }
+    else{
+        limpiarOpciones();
+
+        document.getElementById("imgCosa").src = "img/"+ preguntas[posActual];
+        document.getElementById("n0").innerHTML = opciones[posActual][0];
+        document.getElementById("n1").innerHTML = opciones[posActual][1];
+        document.getElementById("n2").innerHTML = opciones[posActual][2];
+
+
+    }
+}
+
+function limpiarOpciones(){
+    document.getElementById("n0").className = "nombre"
+    document.getElementById("n1").className = "nombre"
+    document.getElementById("n2").className = "nombre"
+    document.getElementById("l0").className = "letra"
+    document.getElementById("l1").className = "letra"
+    document.getElementById("l2").className = "letra"
+}
+
+
+function comprobarRespuesta(opElegida){
+    if(opElegida == guardarOp[posActual]){
+        document.getElementById("n" + opElegida).className = "nombre nombreAcertada";
+        document.getElementById("l" + opElegida).className = "letra letraAcertada";
+    }
+    else{
+        document.getElementById("n" + opElegida).className = "nombre nombreNoAcertada";
+        document.getElementById("l" + opElegida).className = "letra letraNoAcertada";
+        document.getElementById("n" + correcta[posActual]).className = "nombre nombreAcertada";
+        document.getElementById("l" + correcta[posActual]).className = "letra letraAcertada";
+    }
+    posActual++;
+
+    setTimeout(cargarPreguntas,1000);
+}
+
+function terminarJuego(){
+
+}
