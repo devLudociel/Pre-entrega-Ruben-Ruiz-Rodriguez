@@ -79,19 +79,19 @@ window.addEventListener("resize", () => {
 
 ////////////         Programacion para el Juego        ////////////
 
-let preguntas = ["a.png","imgA.png","imgB.png","imgC.png","imgD.png","imgE.png"];
+let preguntas = ["a.png","imgA.png","imgB.png","imgC.png","imgD.png","imgE.png", "imgF.png"];
 
-let guardarOp = [0,2,1,1,0,2,1];
+let guardarOp = [0,0,2,1,1,0,1];
 
 let opciones =[];
 
-opciones.push(["HTML", "CSS", "Javascript"]);
-opciones.push(["HTML", "CSS", "Javascript"]);
-opciones.push(["HTML", "CSS", "Javascript"]);
-opciones.push(["HTML", "CSS", "Javascript"]);
-opciones.push(["HTML", "CSS", "Javascript"]);
-opciones.push(["HTML", "CSS", "Javascript"]);
-opciones.push(["HTML", "CSS", "Javascript"]);
+opciones.push(["UN LENGUAJE", "UN PROGRAMA", "CAPTURADOR DE DATOS"]);
+opciones.push(["PRIMITIVOS", "FACILES", "SIMPLES"]);
+opciones.push(["_PARENT", "_SELF", "_BLANK"]);
+opciones.push(["DISPLAY:HIDDEN", "DISPLAY:NONE", "DISPLAY:CONTENT"]);
+opciones.push(["INSECT", "BUG", "BICHO"]);
+opciones.push(["*(ASTERISCO)", "#(NUMERAL)", "%(PORCENTAJE)"]);
+opciones.push(["VARIABLE", "CICLO", "FUNCION"]);
 
 
 let posActual = 0;
@@ -139,8 +139,8 @@ function comprobarRespuesta(opElegida){
     else{
         document.getElementById("n" + opElegida).className = "nombre nombreNoAcertada";
         document.getElementById("l" + opElegida).className = "letra letraNoAcertada";
-        document.getElementById("n" + correcta[posActual]).className = "nombre nombreAcertada";
-        document.getElementById("l" + correcta[posActual]).className = "letra letraAcertada";
+        document.getElementById("n" + guardarOp[posActual]).className = "nombre nombreAcertada";
+        document.getElementById("l" + guardarOp[posActual]).className = "letra letraAcertada";
     }
     posActual++;
 
@@ -148,5 +148,16 @@ function comprobarRespuesta(opElegida){
 }
 
 function terminarJuego(){
+    document.getElementById("pantalla-juego").style.display= "none";  
+    document.getElementById("pantalla-final").style.display= "block";
+
+    document.getElementById("numCorrectas").innerHTML = cantidadAcertada;
+    document.getElementById("numIncorrectas").innerHTML = preguntas.length - cantidadAcertada;
+}
+
+function volverAlInicio(){
+    document.getElementById("pantalla-final").style.display= "none";  
+    document.getElementById("pantalla-inicial").style.display= "block";
+    document.getElementById("pantalla-juego").style.display= "none";
 
 }
