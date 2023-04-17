@@ -76,4 +76,29 @@ window.addEventListener("resize", () => {
     comprobarancho();
 });
 
+// Practica de metodos de arreglos
+
+let envio = [
+    {
+        Envio: "Gratis",
+        Cantidad: 200
+    },
+    {
+        Envio: "Estandar",
+        Cantidad: 100
+    },
+    {
+        Envio: "Pago",
+        Cantidad: 40
+    }
+]
+
+let result = envio.findIndex(tipoDeEnvio => tipoDeEnvio.Cantidad > 100);
+
+
+console.log(envio[result]);
+
+
+
+
 
