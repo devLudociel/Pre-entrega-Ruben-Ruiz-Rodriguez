@@ -565,11 +565,13 @@ footer{
 /* EStilos para el Modal del carrito */
 
     .contenedor-modal{
-        width: 400px;
+        width: 600px;
         height: 500px;
         background-color: #FFD691;
         position: fixed;
+        right: 5px;
         border-radius: 8px;
+        display: none;
     }
 
     .modal-titulo{
@@ -584,6 +586,10 @@ footer{
     .boton-modal{
         color: #233A66;
         font-size: 32px;
+    }
+
+    .boton-modal:hover{
+        cursor: pointer;
     }
 
 
@@ -609,6 +615,35 @@ footer{
         align-items: center;
         padding-right: 15px;
         padding-top: 20px;
+    }
+
+    .borrar-producto{
+        color: #233A66;
+        font-size: 16px;
+    }
+
+    .borrar-producto:hover{
+        cursor: pointer;
+    }
+
+    .cantidadCarrito{
+        background-color: #233A66;
+        color: white;
+        border-radius: 50%;
+        font-size: 12px;
+        padding: 4px;
+        top: 30px;
+        right: 45px;
+        position: absolute;
+        display: none;
+    }
+
+    .sumar{
+        cursor: pointer;
+    }
+
+    .restar{
+        cursor: pointer;
     }
     
 

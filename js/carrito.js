@@ -1,12 +1,15 @@
-let galeria = document.getElementById(`gallery`)
-let verCarrito = document.getElementById(`cart`)
-let contenedorModal = document.getElementById(`contenedor-modal`)
+const galeria = document.getElementById(`gallery`)
+const verCarrito = document.getElementById(`cart`)
+const contenedorModal = document.getElementById(`contenedor-modal`)
+const cantidadCarrito = document.getElementById(`cantidadCarrito`)
+// array de productos
 const items = [
     {
         id: 1,
         nombre: "Reloj Curren",
         precio: 34,
         img: "./img/Relojes/Curren-d.png",
+        cantidad: 1,
     },
 
     {
@@ -14,6 +17,7 @@ const items = [
         nombre: "Reloj Curren",
         precio: 34,
         img: "./img/Relojes/Curren-a.png",
+        cantidad: 1,
     },
 
     {
@@ -21,6 +25,7 @@ const items = [
         nombre: "Reloj Curren",
         precio: 34,
         img: "./img/Relojes/Curren-n.png",
+        cantidad: 1,
     },
 
     {
@@ -28,11 +33,13 @@ const items = [
         nombre: "Reloj Curren",
         precio: 34,
         img: "./img/Relojes/Reloj-Marron.png",
+        cantidad: 1,
     },
 ];
 
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+// crear productos
 items.forEach((product)=>{
     let contenido = document.createElement("div");
     contenido.classList.add(`tarjeta`)
@@ -55,20 +62,38 @@ items.forEach((product)=>{
     let comprar = document.createElement("button");
     comprar.innerHTML = "Comprar Ahora";
     comprar.classList.add("buy")
+
     contenido.appendChild(comprar);
 
-    comprar.addEventListener("click", ()=>{
+    // push del carrito
+    comprar.addEventListener("click", ()=>{   
+    let repetido = carrito.some((productoRepetido)=> productoRepetido.id === product.id);
+    if(repetido){
+        carrito.map((prod)=>{
+            if(prod.id === product.id){
+                prod.cantidad++
+            }
+        });
+    }else{    
         carrito.push({
             id: product.id,
             img: product.img,
             nombre: product.nombre,
             precio: product.precio,
+            cantidad: product.cantidad,
         });
+    }    
         console.log(carrito);
+        console.log(carrito.length);
+        guardarInfo();
+        mostrarCantidades();
     });
 });
 
-verCarrito.addEventListener("click",()=>{
+// Funcion para mostrar Carrito
+const mostrarCarrito = ()=>{
+    contenedorModal.innerHTML="";
+    contenedorModal.style.display = "block"
     const modal = document.createElement("div");
     modal.className = `modal-titulo`
     modal.innerHTML = `
@@ -80,6 +105,10 @@ verCarrito.addEventListener("click",()=>{
     botonModal.innerText = "X";
     botonModal.className = "boton-modal";
 
+    botonModal.addEventListener("click", ()=>{
+        contenedorModal.style.display="none";
+    })
+
     modal.append(botonModal);
     carrito.forEach((product)=>{
         let contenidoModal = document.createElement("div");
@@ -88,16 +117,75 @@ verCarrito.addEventListener("click",()=>{
             <img src="${product.img}">
             <h3>${product.nombre}</h3>
             <p>${product.precio}$</p>
+            <span class="restar"> - </span>
+            <p>Cantidad: ${product.cantidad}</p>
+            <span class="sumar"> + </span>
+            <span>Total: ${product.cantidad * product.precio}</span>
         `;
         contenedorModal.append(contenidoModal)
-    });
-    
-    const total = carrito.reduce((acc,el)=> acc + el.precio, 0);
 
+        let restar = contenidoModal.querySelector(".restar");
+        restar.addEventListener("click",()=>{
+            if(product.cantidad !== 1){
+            product.cantidad--;
+            };
+            guardarInfo();
+            mostrarCarrito();
+        });
+
+        let sumar = contenidoModal.querySelector(".sumar");
+        sumar.addEventListener("click", ()=>{
+            product.cantidad++;
+            guardarInfo();
+            mostrarCarrito();
+        });
+
+
+        let eliminarProducto = document.createElement("span");
+        eliminarProducto.innerText = "X";
+        eliminarProducto.className = "borrar-producto"
+        contenidoModal.append(eliminarProducto);
+
+        eliminarProducto.addEventListener("click", eliminarProductoCarrito)
+    });
+
+    const total = carrito.reduce((acc,el)=> acc + el.precio *el.cantidad, 0);
     const totalCompra = document.createElement("div");
     totalCompra.className = "total-compra";
     totalCompra.innerHTML = `
     total a pagar: $${total}
     `
     contenedorModal.append(totalCompra);
-});
+};
+
+// evento para mostrar productos en el carrito
+verCarrito.addEventListener("click", mostrarCarrito);
+
+// funcion para borrar producto del carrito
+
+const eliminarProductoCarrito = () =>{
+    const encontrarId = carrito.find((element) => element.id);
+    carrito = carrito.filter((carritoId) =>{
+        return carritoId !== encontrarId;
+    });
+    mostrarCantidades();
+    guardarInfo();
+    mostrarCarrito();
+};
+
+// funcion mostrarCantidades en el span 
+const mostrarCantidades = ()=>{
+    cantidadCarrito.style.display = "block";
+
+    const carritoLength = carrito.length;
+    localStorage.setItem("carritoLength", JSON.stringify(carritoLength))
+    cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
+}
+mostrarCantidades();
+
+
+// localStorage
+const guardarInfo = ()=>{
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+};
+
