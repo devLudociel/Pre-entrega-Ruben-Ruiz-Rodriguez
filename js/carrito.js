@@ -2,6 +2,8 @@ const galeria = document.getElementById(`gallery`)
 const verCarrito = document.getElementById(`cart`)
 const contenedorModal = document.getElementById(`contenedor-modal`)
 const cantidadCarrito = document.getElementById(`cantidadCarrito`)
+const buscador = document.getElementById(`buscador`)
+const botonBuscar = document.getElementById(`botonBuscar`)
 // array de productos
 const items = [
     {
@@ -173,7 +175,7 @@ const eliminarProductoCarrito = () =>{
     mostrarCarrito();
 };
 
-// funcion mostrarCantidades en el span 
+// funcion mostrarCantidades en el span + localStorage
 const mostrarCantidades = ()=>{
     cantidadCarrito.style.display = "block";
 
@@ -189,3 +191,18 @@ const guardarInfo = ()=>{
     localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
+
+// Creando filtro de busqueda
+
+// const filtrar = ()=>{
+//     galeria.innerHTML = ``;
+//     const valorDeBusqueda = buscador.value.toLowerCase();
+//     for(let valor of items){
+//         let nombre = valor.nombre.toLowervalor();
+//         if(nombre.indexOf(valorDeBusqueda) !== -1){
+//             galeria.innerHTML += 
+//         };
+//     };
+// };
+
+// botonBuscar.addEventListener("click", filtrar)
