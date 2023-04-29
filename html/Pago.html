@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="paginaPago">
-        <form action="">
+        <form action="" id="form">
             <div class="filasPago">
                 <div class="columPago">
                     
@@ -17,31 +17,31 @@
 
                     <div class="inputCaja">
                         <span>Nombre y Apellido:</span>
-                        <input type="text" placeholder="Coder Teacher">
+                        <input type="text" placeholder="Coder Teacher" id="name">
                     </div>
 
                     <div class="inputCaja">
                         <span>email:</span>
-                        <input type="text" placeholder="ejemplo@ejemplo.com">
+                        <input type="text" placeholder="ejemplo@ejemplo.com" id="email">
                     </div>
 
                     <div class="inputCaja">
                         <span>direccion:</span>
-                        <input type="text" placeholder="Mi Casa">
+                        <input type="text" placeholder="Mi Casa" id="direccion">
                     </div>
 
                     <div class="inputCaja">
                         <span>Ciudad:</span>
-                        <input type="text" placeholder="La mejor">
+                        <input type="text" placeholder="La mejor" id="ciudad">
                     </div>
                     <div class="flex">
                         <div class="inputCaja">
                             <span>Estado:</span>
-                            <input type="text" placeholder="El mejor">
+                            <input type="text" placeholder="El mejor" id="estado">
                         </div>
                         <div class="inputCaja">
                             <span>zip:</span>
-                            <input type="text" placeholder="1234">
+                            <input type="text" placeholder="1234" id="zip">
                         </div>
                     </div>
                 </div>
@@ -52,36 +52,38 @@
 
                     <div class="inputCaja">
                         <span>Nombre de Tarjeta:</span>
-                        <input type="text" placeholder="xxxx xxxx">
+                        <input type="text" placeholder="xxxx xxxx" id="card">
                     </div>
 
                     <div class="inputCaja">
                         <span>Número de Tarjeta:</span>
-                        <input type="text" placeholder="4540 xxxx xxxx 6897">
+                        <input type="text" placeholder="4540 xxxx xxxx 6897" id="nameC">
                     </div>
 
                     <div class="inputCaja">
                         <span>mes exp:</span>
-                        <input type="text" placeholder="Enero">
+                        <input type="text" placeholder="Enero" id="mes">
                     </div>
 
                     <div class="inputCaja">
                         <span>Año exp:</span>
-                        <input type="text" placeholder="2025">
+                        <input type="text" placeholder="2025" id="year">
                     </div>
                     <div class="flex">
                         <div class="inputCaja">
                             <span>CVV:</span>
-                            <input type="text" placeholder="123">
+                            <input type="text" placeholder="123" id="cvv">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <input type="submit" value="Proceder al Pago" class="btnPago" id="botonPagoFinal">
+            <button type="submit" class="btnPago" id="botonPagoFinal" onclick="agradecerP()">Finalizar Compra</button>
         </form>
     </div>
 
-<script src="../js/carrito.js"></script>
+    
+
+<script src="../js/redireccion.js"></script>
 </body>
 </html>
