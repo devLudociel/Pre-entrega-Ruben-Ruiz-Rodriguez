@@ -78,24 +78,24 @@ window.addEventListener("resize", () => {
 
 // Practica de metodos de arreglos
 
-let envio = [
-    {
-        Envio: "Gratis",
-        Cantidad: 200
-    },
-    {
-        Envio: "Estandar",
-        Cantidad: 100
-    },
-    {
-        Envio: "Pago",
-        Cantidad: 40
-    }
-]
+// let envio = [
+//     {
+//         Envio: "Gratis",
+//         Cantidad: 200
+//     },
+//     {
+//         Envio: "Estandar",
+//         Cantidad: 100
+//     },
+//     {
+//         Envio: "Pago",
+//         Cantidad: 40
+//     }
+// ]
 
-let result = envio.findIndex(tipoDeEnvio => tipoDeEnvio.Cantidad > 100);
+// let result = envio.findIndex(tipoDeEnvio => tipoDeEnvio.Cantidad > 100);
 
-console.log(envio[result]);
+// console.log(envio[result]);
 
 //Crear Carrito de compras
 

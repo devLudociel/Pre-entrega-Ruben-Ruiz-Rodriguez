@@ -646,6 +646,141 @@ footer{
         cursor: pointer;
     }
     
+/* Pagina de Pago */
+
+.paginaPago{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    min-height: 100vh;
+    background: linear-gradient(90deg, #233A66 70%, #222f3e 40.1%);
+    padding-bottom: 70px;
+}
+
+.paginaPago form{
+    padding: 20px;
+    width: 700px;
+    background: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.paginaPago form .filasPago{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.paginaPago form .filasPago .columPago{
+    flex: 1 1 250px;
+}
+
+.paginaPago form .filasPago .columPago .tituloPago{
+    font-size: 20px;
+    color: #333;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.paginaPago form .filasPago .columPago .inputCaja{
+    margin:  15px 0;
+}
+
+.paginaPago form .filasPago .columPago .inputCaja span{
+    margin-bottom: 5px;
+    display: block;
+}
+
+.paginaPago form .filasPago .columPago .inputCaja input{
+    width: 100%;
+    border: 1 px solid #ccc;
+    padding: 10px 15px;
+    font-size: 15px;
+    text-transform: none;
+}
+
+.paginaPago form .filasPago .columPago .inputCaja input:focus{
+    border: 1px solid #000;
+}
 
 
+.paginaPago form .filasPago .columPago .flex{
+    display: flex;
+    gap: 15px;
+}
 
+.paginaPago form .filasPago .columPago .flex .inputCaja{
+    margin-top: 5px;
+}
+
+.paginaPago form .filasPago .columPago .inputCaja img{
+    height: 34px;
+    margin-top: 5px;
+    filter: drop-shadow(0 0 1px #000);
+}
+
+.paginaPago form .btnPago{
+    width: 100%;
+    padding: 12px;
+    font-size: 17px;
+    background: #233A66;
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    border-style: none;
+}
+
+.paginaPago form .btnPago:hover{
+    background: #222f3e;
+}
+
+.btn-pago{
+    width: 80%;
+    padding: 12px;
+    margin-left: 10%;
+    font-size: 17px;
+    background: #233A66;
+    color: white;
+    margin-top: 15px;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 8px;
+}
+
+.btn-pago:hover{
+    background: #222f3e;
+}
+
+
+/* Pagina de Gracias */
+
+.graciasBody{
+    background-color: #233A66;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.message {
+    width : 600px;
+    background-color: #FFD691;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 300px;
+}
+
+.message h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #233A66;
+}
+
+.message p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color:#233A66
+}

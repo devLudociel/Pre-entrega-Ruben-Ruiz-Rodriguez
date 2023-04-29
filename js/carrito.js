@@ -4,6 +4,8 @@ const contenedorModal = document.getElementById(`contenedor-modal`)
 const cantidadCarrito = document.getElementById(`cantidadCarrito`)
 const buscador = document.getElementById(`buscador`)
 const botonBuscar = document.getElementById(`botonBuscar`)
+
+
 // array de productos
 const items = [
     {
@@ -158,7 +160,19 @@ const mostrarCarrito = ()=>{
     total a pagar: $${total}
     `
     contenedorModal.append(totalCompra);
+// agregar funcionalidad para abrir HTML de Pago 
+    const pagar = document.createElement("button");
+    pagar.className = "btn-pago"
+    pagar.innerHTML = "Pagar Ahora"
+    contenedorModal.append(pagar);
+    pagar.addEventListener("click", redireccion);
 };
+
+// funcion de redireccion 
+
+function redireccion(){
+    location.href = `./html/Pago.html`
+}
 
 // evento para mostrar productos en el carrito
 verCarrito.addEventListener("click", mostrarCarrito);
