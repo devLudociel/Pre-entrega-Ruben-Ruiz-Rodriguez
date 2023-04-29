@@ -2,7 +2,7 @@ const galeria = document.getElementById(`gallery`)
 const verCarrito = document.getElementById(`cart`)
 const contenedorModal = document.getElementById(`contenedor-modal`)
 const cantidadCarrito = document.getElementById(`cantidadCarrito`)
-const buscador = document.getElementById(`buscador`)
+// const buscador = document.getElementById(`buscador`)
 const botonBuscar = document.getElementById(`botonBuscar`)
 
 
@@ -160,16 +160,17 @@ const mostrarCarrito = ()=>{
     total a pagar: $${total}
     `
     contenedorModal.append(totalCompra);
+    
 // agregar funcionalidad para abrir HTML de Pago 
     const pagar = document.createElement("button");
     pagar.className = "btn-pago"
     pagar.innerHTML = "Pagar Ahora"
     contenedorModal.append(pagar);
     pagar.addEventListener("click", redireccion);
+    
 };
 
 // funcion de redireccion 
-
 function redireccion(){
     location.href = `./html/Pago.html`
 }
@@ -192,7 +193,6 @@ const eliminarProductoCarrito = () =>{
 // funcion mostrarCantidades en el span + localStorage
 const mostrarCantidades = ()=>{
     cantidadCarrito.style.display = "block";
-
     const carritoLength = carrito.length;
     localStorage.setItem("carritoLength", JSON.stringify(carritoLength))
     cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLength"));
@@ -206,17 +206,4 @@ const guardarInfo = ()=>{
 };
 
 
-// Creando filtro de busqueda
 
-// const filtrar = ()=>{
-//     galeria.innerHTML = ``;
-//     const valorDeBusqueda = buscador.value.toLowerCase();
-//     for(let valor of items){
-//         let nombre = valor.nombre.toLowervalor();
-//         if(nombre.indexOf(valorDeBusqueda) !== -1){
-//             galeria.innerHTML += 
-//         };
-//     };
-// };
-
-// botonBuscar.addEventListener("click", filtrar)

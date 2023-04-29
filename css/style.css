@@ -784,3 +784,15 @@ footer{
     margin-bottom: 30px;
     color:#233A66
 }
+
+.volver{
+    width: 80%;
+    padding: 12px;
+    font-size: 17px;
+    background: #233A66;
+    color: white;
+    margin-top: 15px;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 8px;
+}
